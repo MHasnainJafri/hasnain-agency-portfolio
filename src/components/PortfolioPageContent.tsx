@@ -112,7 +112,7 @@ const PortfolioPageContent = () => {
               </div>
               <div className="p-6">
                 <span className="text-xs font-medium px-2 py-1 rounded bg-background border border-border/50 text-muted-foreground">
-                  {project.category}
+                  {project.tags[0]}
                 </span>
                 <h3 className="text-xl font-semibold text-foreground mt-3 mb-2">{project.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4 line-clamp-3">{project.description}</p>
