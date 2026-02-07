@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar, X } from "lucide-react";
 import { useState, useEffect } from "react";
 
-const CALENDLY_URL = "https://calendly.com/mhasnainjafri";
+const CALENDLY_URL = "https://calendly.com/mhasnainjafri/project-meeting";
 
 const BookCallButton = () => {
   const [isOpen, setIsOpen] = useState(false);

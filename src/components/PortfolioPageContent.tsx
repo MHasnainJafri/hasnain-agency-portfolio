@@ -24,14 +24,14 @@ const projects = [
     description: "A Generative AI Business Assistant. A cutting-edge tool designed to revolutionize the way you interact with information. Tailored to meet the unique needs of your business, it seamlessly integrates with your data, PDFs, DOCs, providing intelligent and contextually relevant responses.",
     tags: ["Generative AI", "RAG", "Business Assistant", "NLP"],
     image: "/boggler prompt.png",
-    link: null,
+    link: "https://www.boggler.ai",
   },
   {
     title: "Blogger Assist",
     description: "A Generative AI Meeting Assistant. Boggler Assist is a Meeting Assistant that utilizes advanced speech recognition technology for real-time transcription during meetings. It transforms into including executive summaries, detailed notes, action items, open ideas and email recaps.",
     tags: ["Speech Recognition", "AI", "Meeting Assistant", "Transcription"],
     image: "/boggler assist.jpg",
-    link: null,
+    link: "https://www.boggler.ai/",
   },
   {
     title: "Me+ai ChatBot",
@@ -45,7 +45,7 @@ const projects = [
     description: "AI-powered solution transcribing doctor-patient conversations into structured SOAP notes with speaker identification, reducing documentation time by 60%.",
     tags: ["Python", "NLP", "Laravel", "Speech Recognition"],
     image: "/scribe.png",
-    link: null,
+    link: "https://scribe-doctor.vercel.app",
   },
 ];
 
