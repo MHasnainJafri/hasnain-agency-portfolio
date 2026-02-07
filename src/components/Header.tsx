@@ -92,7 +92,7 @@ const Header = () => {
       >
         {/* Logo */}
         <div className="flex items-center gap-3 sm:gap-4">
-          <span className="text-lg font-semibold text-foreground tracking-tight">MH</span>
+          <a href="/" className="text-lg font-semibold text-foreground tracking-tight hover:opacity-80 transition-opacity">MH</a>
           <div className="hidden sm:flex items-center gap-4">
             <a 
               href="https://github.com/MHasnainJafri" 

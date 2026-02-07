@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Clock, Send, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Send, MessageCircle, Loader2, CheckCircle } from "lucide-react";
 import { useState } from "react";
 
 const ContactPageContent = () => {
@@ -13,12 +13,34 @@ const ContactPageContent = () => {
     service: "",
     message: "",
   });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission - can integrate with email service or API
-    const mailtoLink = `mailto:eng.muhammadhasnain@gmail.com?subject=Project Inquiry from ${formData.name}&body=Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0ACompany: ${formData.company}%0D%0ABudget: ${formData.budget}%0D%0AService: ${formData.service}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-    window.location.href = mailtoLink;
+    setStatus("loading");
+    setStatusMessage("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      setStatus("success");
+      setStatusMessage("Message sent successfully! Check your email for confirmation.");
+      setFormData({ name: "", email: "", company: "", budget: "", service: "", message: "" });
+    } catch (error: unknown) {
+      setStatus("error");
+      setStatusMessage(error instanceof Error ? error.message : "Failed to send message. Please try again.");
+    }
   };
 
   return (
@@ -136,12 +158,35 @@ const ContactPageContent = () => {
                   />
                 </div>
 
+                {statusMessage && (
+                  <div
+                    className={`p-4 rounded-lg text-sm flex items-center gap-2 ${
+                      status === "success"
+                        ? "bg-green-500/10 text-green-500 border border-green-500/20"
+                        : "bg-red-500/10 text-red-500 border border-red-500/20"
+                    }`}
+                  >
+                    {status === "success" && <CheckCircle size={16} />}
+                    {statusMessage}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full py-4 rounded-lg bg-foreground text-background font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                  disabled={status === "loading"}
+                  className="w-full py-4 rounded-lg bg-foreground text-background font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Send size={18} />
-                  Send Message
+                  {status === "loading" ? (
+                    <>
+                      <Loader2 size={18} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={18} />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             </div>

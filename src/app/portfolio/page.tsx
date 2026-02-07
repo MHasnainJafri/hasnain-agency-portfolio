@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 import PortfolioPageContent from "@/components/PortfolioPageContent";
 
 export const metadata: Metadata = {
@@ -19,7 +18,6 @@ export default function PortfolioPage() {
       <Header />
       <PortfolioPageContent />
       <Footer />
-      <WhatsAppButton />
     </main>
   );
 }

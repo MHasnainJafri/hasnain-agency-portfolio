@@ -5,18 +5,32 @@ import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
+    title: "Restoliv - Multi-Vendor Restaurant Platform",
+    description: "Multi-vendor restaurant platform with Laravel backend, Next.js web app, and three Flutter mobile apps for deliveryman, user, and vendor. Complete food ordering and delivery ecosystem.",
+    tags: ["Laravel", "Next.js", "Flutter", "Multi-vendor"],
+    image: "/restoliv.png",
+    link: "https://www.restoliv.fr/",
+  },
+  {
+    title: "Samanta - Video Interpretation Platform",
+    description: "Multi-platform app connecting users with professional interpreters for real-time video calls using WebSockets and third-party translation APIs.",
+    tags: ["Laravel", "Flutter", "WebSockets", "APIs"],
+    image: "/samanta.png",
+    link: "https://www.samantapp.com/",
+  },
+  {
     title: "Blogger Prompt",
     description: "A Generative AI Business Assistant. A cutting-edge tool designed to revolutionize the way you interact with information. Tailored to meet the unique needs of your business, it seamlessly integrates with your data, PDFs, DOCs, providing intelligent and contextually relevant responses.",
     tags: ["Generative AI", "RAG", "Business Assistant", "NLP"],
     image: "/boggler prompt.png",
-    link: null,
+    link: "https://www.boggler.ai",
   },
   {
     title: "Blogger Assist",
     description: "A Generative AI Meeting Assistant. Boggler Assist is a Meeting Assistant that utilizes advanced speech recognition technology for real-time transcription during meetings. It transforms into including executive summaries, detailed notes, action items, open ideas and email recaps.",
     tags: ["Speech Recognition", "AI", "Meeting Assistant", "Transcription"],
     image: "/boggler assist.jpg",
-    link: null,
+    link: "https://www.boggler.ai",
   },
   {
     title: "Me+ai ChatBot",
@@ -26,34 +40,14 @@ const projects = [
     link: null,
   },
   {
-    title: "Restoliv - Multi-Vendor Restaurant Platform",
-    description: "Multi-vendor restaurant platform with Laravel backend, Next.js web app, and three Flutter mobile apps for deliveryman, user, and vendor. Complete food ordering and delivery ecosystem.",
-    tags: ["Laravel", "Next.js", "Flutter", "Multi-vendor"],
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop",
-    link: "https://www.restoliv.fr/",
-  },
-  {
     title: "Scribe – AI Healthcare Assistant",
     description: "AI-powered solution transcribing doctor-patient conversations into structured SOAP notes with speaker identification, reducing documentation time by 60%.",
     tags: ["Python", "NLP", "Laravel", "Speech Recognition"],
     image: "/scribe.png",
-    link: null,
-  },
-  {
-    title: "SmartEye - Vehicle Tracking & Analytics",
-    description: "Real-time vehicle detection system using CARLA simulator for synthetic data and custom ResNet-based computer vision model for traffic monitoring.",
-    tags: ["Computer Vision", "ResNet", "CARLA", "Python"],
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop",
-    link: null,
-  },
-  {
-    title: "Samanta - Video Interpretation Platform",
-    description: "Multi-platform app connecting users with professional interpreters for real-time video calls using WebSockets and third-party translation APIs.",
-    tags: ["Laravel", "Flutter", "WebSockets", "APIs"],
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop",
-    link: null,
+    link: "https://scribe-doctor.vercel.app",
   },
 ];
+
 
 const PortfolioSection = () => {
   return (
@@ -132,7 +126,6 @@ const PortfolioSection = () => {
                   ))}
                 </div>
 
-                {/* Link Button */}
                 {project.link && (
                   <a
                     href={project.link}
@@ -152,6 +145,5 @@ const PortfolioSection = () => {
     </section>
   );
 };
-
 export default PortfolioSection;
 
